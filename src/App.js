@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+import { AppContext } from "./AppContext";
 
-function App() {
+export default function App() {
+  const {subscribed, subscribeToPush, sendTest} = useContext(AppContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ padding: "2rem" }}>
+      <h1>React Web Push Demo</h1>
+      {!subscribed ? (
+        <button onClick={subscribeToPush}>Enable Notifications</button>
+      ) : (
+        <>
+          <p>✅ Subscribed!</p>
+          <button onClick={() => {
+            sendTest()
+          }}>Send Test Notification</button>
+        </>
+      )}
     </div>
   );
 }
-
-export default App;
