@@ -1,5 +1,4 @@
 self.addEventListener('push', (event) => {
-  console.log('Push event received:', event);
   let data = { title: 'Test', body: 'Default message', url: '/' };
 
   if (event.data) {
