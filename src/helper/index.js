@@ -1,4 +1,4 @@
-const API_BASE = process.env.REACT_APP_API_BASE;
+export const API_BASE = "http://localhost:8000";
 
 export async function getVapidPublicKey() {
   const res = await fetch(`${API_BASE}/vapid/public`);
